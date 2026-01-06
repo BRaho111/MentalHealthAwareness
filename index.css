@@ -1,1 +1,141 @@
+/* Color palette */
+:root {
+  --sage: #A8C7B4;
+  --deep-sage: #6B8F7A;
+  --mist: #F4F6F5;
+  --sand: #EDE9E3;
+  --text: #2F3E46;
+  --muted: #6C7A75;
+}
+
+/* Base */
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: var(--mist);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.container {
+  width: min(1100px, 90%);
+  margin: auto;
+}
+
+/* Header */
+.header {
+  background: linear-gradient(to right, var(--sage), var(--deep-sage));
+  padding: 1rem 0;
+  color: white;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+nav a:hover {
+  opacity: 1;
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 4rem 0;
+}
+
+.hero-text h2 {
+  margin: 0;
+  font-size: 2.4rem;
+}
+
+.hero-img img {
+  width: 100%;
+  max-width: 360px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* Sections */
+.section {
+  padding: 3.5rem 0;
+}
+
+.section h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.9rem;
+}
+
+/* Grid + Cards */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+.card {
+  background: var(--sand);
+  padding: 1.4rem;
+  border-radius: 14px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  background: var(--deep-sage);
+  color: white;
+  padding: 0.7rem 1.4rem;
+  border-radius: 8px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+}
+
+.btn:hover {
+  background: #5a7c68;
+}
+
+/* Contact Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  max-width: 420px;
+}
+
+input, textarea {
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #dcd9d4;
+  font-size: 1rem;
+  background: white;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 1.5rem 0;
+  background: var(--sage);
+  color: white;
+  margin-top: 3rem;
+}
 
