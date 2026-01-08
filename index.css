@@ -96,6 +96,10 @@ nav a:hover {
   margin-top: 0;
 }
 
+p{
+font-family: Impact, Haettenschweiler, sans-serif
+}
+
 /* Buttons */
 .btn {
   display: inline-block;
