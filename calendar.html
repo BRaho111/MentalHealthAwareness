@@ -2,209 +2,114 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Minimal Calendar</title>
-
+<title>Appointment Scheduler</title>
 <style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    margin: 0;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+  }
 
-:root {
-  --hour-height: 60px;       
-  --border: #e5e5e5;          
-  --accent: #3b82f6;           
-  font-family: system-ui, sans-serif;
-}
+  .scheduler {
+    background: #ffffff;
+    padding: 24px;
+    width: 320px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  }
 
+  h2 {
+    margin: 0 0 16px;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 0.03em;
+  }
 
-body {
-  margin: 0;
-  background: #fafafa;
-}
+  label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
 
+  input, button {
+    width: 100%;
+    padding: 9px 10px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    border: 1px solid #dddddd;
+    font-size: 13px;
+    box-sizing: border-box;
+  }
 
-header {
-  padding: 16px;
-  font-weight: 600;
-  font-size: 1.1rem;
-}
+  button {
+    border: none;
+    background: #111111;
+    color: #ffffff;
+    cursor: pointer;
+    letter-spacing: 0.04em;
+  }
 
+  button:hover {
+    background: #333333;
+  }
 
-.calendar {
-  display: grid;
-  grid-template-columns: 60px 1fr;
-  height: calc(100vh - 60px);
-  overflow-y: auto;
-}
+  .appointments {
+    margin-top: 16px;
+    font-size: 13px;
+  }
 
-
-.time {
-  border-top: 1px solid var(--border);
-  padding: 4px;
-  font-size: 0.75rem;
-  text-align: right;
-}
-
-
-.slot {
-  position: relative;
-  border-top: 1px solid var(--border);
-}
-
-
-.event {
-  position: absolute;        
-  left: 4px;
-  right: 4px;
-  background: var(--accent);
-  color: white;
-  padding: 4px 6px;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  cursor: pointer;
-}
-
-
-#now {
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: red;
-}
+  .appointment-item {
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #eeeeee;
+    background: #fafafa;
+    margin-bottom: 8px;
+  }
 </style>
 </head>
-
 <body>
 
-<!-- Displays the current date -->
-<header id="date"></header>
+<div class="scheduler">
+  <h2>Appointments</h2>
 
-<!-- Calendar container -->
-<div class="calendar" id="calendar"></div>
+  <label for="name">Name</label>
+  <input id="name" type="text">
+
+  <label for="date">Date</label>
+  <input id="date" type="date">
+
+  <label for="time">Time</label>
+  <input id="time" type="time">
+
+  <button onclick="addAppointment()">Add</button>
+
+  <div class="appointments" id="appointments"></div>
+</div>
 
 <script>
+  function addAppointment() {
+    const name = document.getElementById("name").value.trim();
+    const date = document.getElementById("date").value;
+    const time = document.getElementById("time").value;
 
-const START = 6;     // Calendar starts at 6 AM
-const END = 23;     // Calendar ends at 11 PM
-const events = [];  // Stores all calendar events
+    if (!name || !date || !time) return;
 
+    const container = document.getElementById("appointments");
+    const item = document.createElement("div");
 
-const cal = document.getElementById('calendar');
-const $ = q => document.querySelector(q);
+    item.className = "appointment-item";
+    item.textContent = name + " — " + date + " at " + time;
 
+    container.appendChild(item);
 
-   1 minute = 1 pixel */
-const px = (h, m = 0) => ((h - START) * 60 + m);
-
-
-document.getElementById('date').textContent =
-  new Date().toLocaleDateString(undefined, {
-    weekday: 'long',
-    month: 'long',
-    day: 'numeric'
-  });
-
-
-for (let h = START; h < END; h++) {
-  cal.innerHTML += `
-    <div class="time">${format(h)}</div>
-    <div class="slot" data-hour="${h}"></div>
-  `;
-}
-
-
-cal.onclick = e => {
-  const slot = e.target.closest('.slot');
-  if (!slot) return;         
-
-  const hour = slot.dataset.hour;
-  const title = prompt('Event title?');
-  if (!title) return;
-
-
-  events.push({
-    id: Date.now(),
-    title,
-    start: +hour,
-    end: +hour + 1
-  });
-
-  render();
-};
-
-
-function render() {
-
-  document.querySelectorAll('.event').forEach(e => e.remove());
-
-  events.forEach(ev => {
-    const el = document.createElement('div');
-    el.className = 'event';
-    el.textContent = ev.title;
-
-
-    el.style.top = px(ev.start) + 'px';
-    el.style.height = (ev.end - ev.start) * 60 + 'px';
-
-
-    el.onclick = e => {
-      e.stopPropagation();
-      const t = prompt('Edit title', ev.title);
-      if (t !== null) {
-        ev.title = t;
-        render();
-      }
-    };
-
-    /* Double-click → delete event */
-    el.ondblclick = e => {
-      e.stopPropagation();
-      events.splice(events.indexOf(ev), 1);
-      render();
-    };
-
-    cal.appendChild(el);
-  });
-
-  drawNow();
-}
-
-
-function drawNow() {
-  let line = $('#now');
-
-
-  if (!line) {
-    line = document.createElement('div');
-    line.id = 'now';
-    cal.appendChild(line);
+    document.getElementById("name").value = "";
+    document.getElementById("date").value = "";
+    document.getElementById("time").value = "";
   }
-
-  const now = new Date();
-  const h = now.getHours();
-  const m = now.getMinutes();
-
-  // Hide indicator if outside display hours
-  if (h < START || h >= END) {
-    line.style.display = 'none';
-    return;
-  }
-
-
-  line.style.top = px(h, m) + 'px';
-  line.style.display = 'block';
-}
-
-
-setInterval(drawNow, 60000);
-drawNow();
-
-
-function format(h) {
-  if (h === 12) return '12 PM';
-  if (h > 12) return `${h - 12} PM`;
-  return `${h} AM`;
-}
 </script>
 
 </body>
 </html>
-
