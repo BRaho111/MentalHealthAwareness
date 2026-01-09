@@ -154,3 +154,10 @@ transition: transform 0.2s ease;
 transform: scale(1.03);
 }
 
+/*Border creation code for each video, currently learning how to make circular borders, and we should be fine*/
+.border1 {
+  border-radius: 25px;
+  border: 2px deep-sage;
+  padding: 10px
+  margin: 5px
+}
