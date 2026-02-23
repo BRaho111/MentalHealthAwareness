@@ -1,15 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sky Blue Combo</title>
+  <title>Stay Connected | ABA | Reset</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="subpage.css">
 </head>
-
 <body>
-
 <header class="header">
   <div class="container nav">
     <h1 class="logo">ABA | Reset</h1>
@@ -19,28 +17,50 @@
   </div>
 </header>
 
-<section class="section container">
-  <h2>Stay Connected</h2>
-
-  <div class="video-box">
-    <video width="1000px" height="450px" controls>
-      <source src= "Connecting%20With%20Your%20Family%20_%20Emily%20Dean%20_%20TEDxYouth@MBJH.mp4" type="video/mp4">
-    </video>
+<div class="subpage-hero" style="background-image: url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1400&q=85');">
+  <div class="subpage-hero-overlay">
+    <div class="container">
+      <span class="subpage-tag">Self-Care</span>
+      <h2>Stay Connected</h2>
+    </div>
   </div>
+</div>
 
-  <div class="info-section">
-    <h3>Why Community is Important</h3>
-    <p>Mental Health America(MHA) talks about how peoples undermind the essential role of social connection in maintaining satisfactory mental health. Strong relationships with family, friends, and your local community members provide emotional support, reduce isolation, and build resilience against stress and mental illness. MHA elucidates the idea that teens who regularly connect with their community are better at coping with challenges and experience a greater sense of belonging and self-worth. Open communication and shared activities are key ways to nurture these vital connections.</p>
+<section class="section container">
+  <div class="subpage-layout">
+
+    <div class="subpage-main">
+      <div class="video-box">
+        <video controls>
+          <source src="Connecting%20With%20Your%20Family%20_%20Emily%20Dean%20_%20TEDxYouth@MBJH.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="info-section">
+        <h3>Why Community is Important</h3>
+        <p>Mental Health America (MHA) talks about how peoples undermind the essential role of social connection in maintaining satisfactory mental health. Strong relationships with family, friends, and your local community members provide emotional support, reduce isolation, and build resilience against stress and mental illness. MHA elucidates the idea that teens who regularly connect with their community are better at coping with challenges and experience a greater sense of belonging and self-worth. Open communication and shared activities are key ways to nurture these vital connections.</p>
+      </div>
+    </div>
+
+    <aside class="subpage-sidebar">
+      <div class="sidebar-img-card">
+        <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600&q=85" alt="Family spending time together">
+      </div>
+      <div class="sidebar-img-card">
+        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=85" alt="Friends laughing together">
+      </div>
+      <div class="sidebar-fact">
+        <strong>MHA Insight</strong>
+        <p>Teens who regularly connect with their community experience a greater sense of belonging and self-worth.</p>
+      </div>
+    </aside>
+
   </div>
 </section>
 
 <footer class="footer">
   <p>&copy; <span id="year"></span> ABA | Reset</p>
 </footer>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
+<script src="main.js" defer></script>
 </body>
 </html>
