@@ -1,4 +1,4 @@
-/* This is our color palette that'll be used during our project to represent a modest & welcoming tone to our website.*/
+/* Color palette — unchanged */
 :root {
   --sage: #A8C7B4;
   --deep-sage: #6B8F7A;
@@ -8,7 +8,11 @@
   --muted: #6C7A75;
 }
 
-/* Base */
+/* ─── Reset & Base ──────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: "Helvetica Neue", Arial, sans-serif;
@@ -17,147 +21,444 @@ body {
   line-height: 1.6;
 }
 
-.container {
-  width: min(1100px, 90%);
-  margin: auto;
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
-/* Header */
+/* ─── Layout ────────────────────────────────────────────────── */
+.container {
+  width: min(1100px, 90%);
+  margin-inline: auto;
+}
+
+/* ─── Header ────────────────────────────────────────────────── */
 .header {
   background: linear-gradient(to right, var(--sage), var(--deep-sage));
   padding: 1rem 0;
   color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
 }
-/*Navigation section for our website for our functionality of our navigation bar.*/
+
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
+}
+
+.logo {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+/* Nav links */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 0.1rem;
 }
 
 nav a {
-  margin-left: 1rem;
+  padding: 0.35rem 0.65rem;
   text-decoration: none;
   color: white;
   font-weight: 600;
+  font-size: 0.875rem;
   opacity: 0.9;
+  border-radius: 6px;
+  transition: opacity 0.15s ease, background 0.15s ease;
 }
 
-nav a:hover {
+nav a:hover,
+nav a:focus-visible {
   opacity: 1;
+  background: rgba(255,255,255,0.15);
+  outline: none;
 }
 
-/* Hero */
+/* Hamburger toggle (hidden on desktop) */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: white;
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-toggle:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+/* ─── Hero ──────────────────────────────────────────────────── */
 .hero {
+  padding: 4.5rem 0;
+}
+
+.hero-inner {
   display: flex;
-align-items: center;
-    gap: 2rem;
-  padding: 4rem 0;
+  align-items: center;
+  gap: 3rem;
+}
+
+.hero-text {
+  flex: 1 1 0;
+  min-width: 0;
 }
 
 .hero-text h2 {
-  margin: 0;
-  font-size: 2.4rem;
+  margin: 0 0 1rem;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  line-height: 1.2;
+}
+
+.hero-text p {
+  margin: 0 0 1.75rem;
+  color: var(--muted);
+  max-width: 60ch;
+}
+
+.hero-img {
+  flex: 0 0 auto;
 }
 
 .hero-img img {
   width: 100%;
-    max-width: 360px;
-border-radius: 14px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  max-width: 380px;
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+  object-fit: cover;
 }
 
-/* Sections */
+/* ─── Sections ──────────────────────────────────────────────── */
 .section {
-  padding: 3.5rem 0;
+  padding: 4rem 0;
+}
+
+.section--alt {
+  background: var(--sand);
 }
 
 .section h2 {
-    margin-bottom: 0.5rem;
-font-size: 1.9rem;
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.5rem, 3vw, 1.9rem);
+  line-height: 1.25;
 }
 
-/* Grid + Cards */
+.section p {
+  max-width: 72ch;
+  color: var(--muted);
+  margin: 0 0 1.5rem;
+}
+
+/* ─── Grid & Cards ──────────────────────────────────────────── */
 .grid {
   display: grid;
-     gap: 1.5rem;
+  gap: 1.5rem;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  margin-top: 1.5rem;
 }
 
 .card {
-  background: var(--sand);
-padding: 1.4rem;
+  background: var(--mist);
+  padding: 1.6rem 1.4rem;
   border-radius: 14px;
-    box-shadow: 0 6px 14px rgba(0,0,0,0.05);
-  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.06);
+  height: 100%;
+}
+
+/* Cards inside --alt sections get the mist bg to contrast with sand */
+.section--alt .card {
+  background: var(--mist);
+}
+
+/* Cards inside regular sections keep sand bg */
+.section:not(.section--alt) .card {
+  background: var(--sand);
 }
 
 .card h3 {
-  margin-top: 0;
+  margin: 0 0 0.6rem;
+  font-size: 1.05rem;
 }
 
-/*Section for our buttons*/
-.btn {
-  display: inline-block;
-  background: var(--deep-sage);
-color: white;
-  padding: 0.7rem 1.4rem;
-border-radius: 8px;
-  text-decoration: none;
-  border: none;
-cursor: pointer;
-  font-weight: 600;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+.card p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--muted);
 }
 
-.btn:hover {
-  background: #5a7c68;
-}
-
-/* Contact form for the end page of ABA Reset might be broken */
-.contact-form {
-  display: flex;
-flex-direction: column;
-gap: 0.9rem;
-  max-width: 420px;
-}
-
-input, textarea {
-  padding: 0.8rem;
-  border-radius: 8px;
-  border: 1px solid #dcd9d4;
-  font-size: 1rem;
-  background: white;
-}
-
-/* Footer so we can put ABA Reset at the bottom of the web page */
-.footer {
-  text-align: center;
-  padding: 1.5rem 0;
-  background: var(--sage);
-  color: white;
-  margin-top: 3rem;
-}
-
+/* ─── Card Links ────────────────────────────────────────────── */
 .card-link {
-text-decoration: none;
+  text-decoration: none;
   color: inherit;
-  display: block;
+  display: flex;
 }
 
 .card-link .card {
   cursor: pointer;
-transition: transform 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
 }
 
 .card-link .card:hover {
-transform: scale(1.03);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.1);
 }
 
-/*Border creation code for each video, currently learning how to make circular borders, and we should be fine*/
+.card-link:focus-visible .card {
+  outline: 3px solid var(--deep-sage);
+  outline-offset: 2px;
+}
+
+/* ─── Buttons ───────────────────────────────────────────────── */
+.btn {
+  display: inline-block;
+  background: var(--deep-sage);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.btn:hover {
+  background: #5a7c68;
+  transform: translateY(-1px);
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--sage);
+  outline-offset: 2px;
+}
+
+/* ─── Contact Layout ────────────────────────────────────────── */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.contact-info h2 {
+  margin-bottom: 1rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+input,
+textarea {
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #dcd9d4;
+  font-size: 1rem;
+  font-family: inherit;
+  background: white;
+  width: 100%;
+  transition: border-color 0.15s ease;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--deep-sage);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* ─── Hotlines ──────────────────────────────────────────────── */
+.hotlines-card {
+  max-width: 640px;
+}
+
+.hotlines-card h2 {
+  margin-bottom: 1rem;
+}
+
+.hotlines-list {
+  list-style: disc;
+  padding-left: 1.4rem;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.hotlines-list li {
+  font-size: 1rem;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* ─── Testimonials ──────────────────────────────────────────── */
+.testimonial-card {
+  max-width: 900px;
+}
+
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 1.25rem;
+}
+
+blockquote.testimonial {
+  margin: 0;
+  padding: 1.5rem;
+  background: var(--mist);
+  border-radius: 12px;
+  border-left: 4px solid var(--deep-sage);
+}
+
+blockquote.testimonial p {
+  margin: 0 0 1rem;
+  color: var(--text);
+  font-style: italic;
+  line-height: 1.7;
+  max-width: none;
+}
+
+blockquote.testimonial footer {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--deep-sage);
+}
+
+/* ─── Footer ────────────────────────────────────────────────── */
+.footer {
+  text-align: center;
+  padding: 1.75rem 0;
+  background: var(--sage);
+  color: white;
+  margin-top: 0;
+  font-weight: 500;
+}
+
+/* ─── Border helper (preserved) ────────────────────────────── */
 .border1 {
   border-radius: 25px;
-  border: 2px deep-sage;
-  padding: 10px
-  margin: 5px
+  border: 2px solid var(--deep-sage);
+  padding: 10px;
+  margin: 5px;
+}
+
+/* ─── Responsive ────────────────────────────────────────────── */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .hero-inner {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .hero-text p {
+    margin-inline: auto;
+  }
+
+  .hero-img img {
+    max-width: 100%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--deep-sage);
+    padding: 0.75rem 1rem 1rem;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  }
+
+  nav.nav--open {
+    display: flex;
+  }
+
+  nav a {
+    width: 100%;
+    padding: 0.65rem 0.75rem;
+    font-size: 0.95rem;
+    border-radius: 6px;
+  }
+
+  .header {
+    position: sticky;
+  }
+
+  .hero {
+    padding: 2.5rem 0;
+  }
+
+  .section {
+    padding: 2.5rem 0;
+  }
+
+  .section h2 {
+    font-size: 1.5rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonials {
+    grid-template-columns: 1fr;
+  }
+
+  .hotlines-card,
+  .testimonial-card {
+    max-width: 100%;
+  }
 }
