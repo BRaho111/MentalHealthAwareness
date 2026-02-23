@@ -206,13 +206,21 @@ nav a:focus-visible {
   font-size: 1.05rem;
 }
 
-.card-img {
-  width: calc(100% + 2.8rem);
+.card-img-wrapper {
   margin: -1.6rem -1.4rem 1.2rem;
-  height: 180px;
+  border-radius: 11px 11px 0 0;
+  overflow: hidden;
+  border: 3px solid var(--deep-sage);
+  border-bottom: none;
+}
+
+.card-img {
+  width: 100%;
+  height: 190px;
   object-fit: cover;
-  border-radius: 14px 14px 0 0;
+  object-position: center;
   display: block;
+  border-radius: 0;
 }
 
 .card p {
