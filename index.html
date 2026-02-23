@@ -9,152 +9,208 @@
 
 <body>
 
-<header class="header">
+<header class="header" role="banner">
   <div class="container nav">
     <h1 class="logo">ABA | Reset</h1>
-
-    <nav>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav aria-label="Main navigation">
       <a href="#about">About</a>
       <a href="#resources">Resources</a>
       <a href="#selfcare">Self‑Care</a>
       <a href="#contact">Support</a>
       <a href="#contact2">Mental Health Hotlines</a>
       <a href="#testimonial">Testimonial</a>
-      <a href="calendar.html" target="_blank">Open Mental Health Scheduler</a>
+      <a href="calendar.html" target="_blank" rel="noopener">Open Mental Health Scheduler</a>
     </nav>
   </div>
 </header>
 
-<section class="hero container">
-  <div class="hero-text">
-    <h2>When mental health challenges arise, it’s time to reset.</h2>
-    <p>ABA | Reset serves as a comprehensive campaign aimed to destigmatize mental health through education & empowering individuals to seek help who’ve been battling with mental health disorders. Our support tools & accessible information, ABA Reset, educate visitors about major mental health conditions, and connect individuals with the support they need to begin their journey towards recovery. This website is dedicated to serving anyone affected by mental health challenges or want to educate themselves.</p>
-    <a class="btn" href="#resources">Explore Resources</a>
-    <img src= "depression.jpeg"> 
-  </div>
-</section>
+<main>
 
-<section id="about" class="section container">
-  <h2>About This Space</h2>
-  <p>ABA | Reset is committed to providing reliable mental health information & promoting mental health awareness, stigma-free resources for anyone going through any mental health challenges. This website serves as a supportive space with tons of information about common mental health disorders & practical self-care ideas. Our goal is to educate you with knowledge, connect you with our support team, and provide you with hope towards mental wellness. It doesn’t matter whether your seekin guidance for yourself or attempting to assist someone you care about. ABA | Reset is here to make a positive impact.</p>
-  <br>
-  <a class="btn" href="#selfcare">Explore Self-Care</a>
-</section>
-  
-  
-<section id="resources" class="section container">
-  <h2>Resources</h2>
-  <div class="grid">
-
-    <a href="anxiety.html" class="card-link">
-      <div class="card">
-        <h3>School Stress Is Real</h3>
-        <p>Support and Solutions for Teen Mental Health →<p>
+  <section class="hero" aria-label="Hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <h2>When mental health challenges arise, it's time to reset.</h2>
+        <p>ABA | Reset serves as a comprehensive campaign aimed to destigmatize mental health through education &amp; empowering individuals to seek help who've been battling with mental health disorders. Our support tools &amp; accessible information, ABA Reset, educate visitors about major mental health conditions, and connect individuals with the support they need to begin their journey towards recovery. This website is dedicated to serving anyone affected by mental health challenges or want to educate themselves.</p>
+        <a class="btn" href="#resources">Explore Resources</a>
       </div>
-    </a>
-
-    <a href="depression.html" class="card-link">
-      <div class="card">
-        <h3>It’s Okay to Feel Overwhelmed</h3>
-        <p>Take Time to Reset and Recharge →</p>
+      <div class="hero-img">
+        <img src="depression.jpeg" alt="Mental health awareness illustration">
       </div>
-    </a>
+    </div>
+  </section>
 
-    <a href="stress.html" class="card-link">
-      <div class="card">
-        <h3>Bipolar Disorder</h3>
-        <p>Balance Highs and Lows →</p>
+  <section id="about" class="section" aria-labelledby="about-heading">
+    <div class="container">
+      <h2 id="about-heading">About This Space</h2>
+      <p>ABA | Reset is committed to providing reliable mental health information &amp; promoting mental health awareness, stigma-free resources for anyone going through any mental health challenges. This website serves as a supportive space with tons of information about common mental health disorders &amp; practical self-care ideas. Our goal is to educate you with knowledge, connect you with our support team, and provide you with hope towards mental wellness. It doesn't matter whether your seekin guidance for yourself or attempting to assist someone you care about. ABA | Reset is here to make a positive impact.</p>
+      <br>
+      <a class="btn" href="#selfcare">Explore Self-Care</a>
+    </div>
+  </section>
+
+  <section id="resources" class="section section--alt" aria-labelledby="resources-heading">
+    <div class="container">
+      <h2 id="resources-heading">Resources</h2>
+      <div class="grid">
+
+        <a href="anxiety.html" class="card-link">
+          <div class="card">
+            <h3>School Stress Is Real</h3>
+            <p>Support and Solutions for Teen Mental Health →</p>
+          </div>
+        </a>
+
+        <a href="depression.html" class="card-link">
+          <div class="card">
+            <h3>It's Okay to Feel Overwhelmed</h3>
+            <p>Take Time to Reset and Recharge →</p>
+          </div>
+        </a>
+
+        <a href="stress.html" class="card-link">
+          <div class="card">
+            <h3>Bipolar Disorder</h3>
+            <p>Balance Highs and Lows →</p>
+          </div>
+        </a>
+
+        <a href="supportOthers.html" class="card-link">
+          <div class="card">
+            <h3>Schizophrenia</h3>
+            <p>Understand and Seek Support →</p>
+          </div>
+        </a>
+
       </div>
-    </a>
+    </div>
+  </section>
 
-    <a href="supportOthers.html" class="card-link">
-      <div class="card">
-        <h3>Schizophrenia</h3>
-        <p>Understand and Seek Support →</p>
+  <section id="selfcare" class="section" aria-labelledby="selfcare-heading">
+    <div class="container">
+      <h2 id="selfcare-heading">Self‑Care Ideas</h2>
+      <div class="grid">
+
+        <a href="physicalActivity.html" class="card-link">
+          <div class="card">
+            <h3>Move Your Body</h3>
+            <p>Boost Your Mood with Exercise →</p>
+          </div>
+        </a>
+
+        <a href="mindfulness.html" class="card-link">
+          <div class="card">
+            <h3>Calm Your Mind</h3>
+            <p>Practice Mindfulness and Relaxation →</p>
+          </div>
+        </a>
+
+        <a href="sleep.html" class="card-link">
+          <div class="card">
+            <h3>Rest Well</h3>
+            <p>Build Healthy Sleep Habits →</p>
+          </div>
+        </a>
+
+        <a href="connectedFamily.html" class="card-link">
+          <div class="card">
+            <h3>Stay Connected</h3>
+            <p>Reach Out to Friends and Family →</p>
+          </div>
+        </a>
+
       </div>
-    </a>
+    </div>
+  </section>
 
-  </div>
-</section>
-
-  
-<section id="selfcare" class="section container">
-  <h2>Self‑Care Ideas</h2>
-  <div class="grid">
-    
-    <a href="physicalActivity.html" class="card-link">
-      <div class="card">
-        <h3>Move Your Body</h3>
-        <p>Boost Your Mood with Exercise →<p>
+  <section id="contact" class="section section--alt" aria-labelledby="contact-heading">
+    <div class="container contact-layout">
+      <div class="contact-info">
+        <h2 id="contact-heading">Reach Out &amp; Our Emergency Contact</h2>
+        <p>Just know you aren't alone, reach out to friends or family. You can call contact us any time during your healing process, and we'll respond as quickly as we possibly can.</p>
       </div>
-    </a>
+      <form class="contact-form" novalidate aria-label="Contact form">
+        <input type="text" placeholder="Name" aria-label="Your name">
+        <input type="email" placeholder="Email" aria-label="Your email">
+        <textarea rows="4" placeholder="Message" aria-label="Your message"></textarea>
+        <button class="btn" type="submit">Send</button>
+      </form>
+    </div>
+  </section>
 
-    <a href="mindfulness.html" class="card-link">
-      <div class="card">
-        <h3>Calm Your Mind</h3>
-        <p>Practice Mindfulness and Relaxation →</p>
+  <section id="contact2" class="section" aria-labelledby="hotlines-heading">
+    <div class="container">
+      <div class="card hotlines-card">
+        <h2 id="hotlines-heading">Mental Health Hotlines</h2>
+        <ul class="hotlines-list">
+          <li>Call or text 988 (The Suicide &amp; Crisis Lifeline)</li>
+          <li>Crisis Text Line (Text HOME to 741741)</li>
+          <li>Trevor Project for LGBTQ youth (866-488-7386)</li>
+          <li>Ohio Mental Health Hotline at 866-903-3787</li>
+        </ul>
       </div>
-    </a>
+    </div>
+  </section>
 
-    <a href="sleep.html" class="card-link">
-      <div class="card">
-        <h3>Rest Well</h3>
-        <p>Build Healthy Sleep Habits →</p>
+  <section id="testimonial" class="section section--alt" aria-labelledby="testimonial-heading">
+    <div class="container">
+      <div class="card testimonial-card">
+        <h2 id="testimonial-heading">Testimonial</h2>
+        <div class="testimonials">
+          <blockquote class="testimonial">
+            <p>"I used to deal with a lot of peer pressure, and it always felt like I had no one to talk to about it. The website helped me understand what I was feeling and gave me real ways to handle the stress.
+    Reading the advice and stories from others made me feel less alone, and it honestly helped me get back on track."</p>
+            <footer>— Mohamadu Faye</footer>
+          </blockquote>
+          <blockquote class="testimonial">
+            <p>"I got bullied for having a beard at a young age, and it really messed with my confidence. When I found this website, the resources and supportive tone made me feel
+    understood instead of judged. It helped me rebuild my self‑esteem and reminded me that what I look like doesn't define my worth."</p>
+            <footer>— Yazan Satariyah</footer>
+          </blockquote>
+        </div>
       </div>
-    </a>
+    </div>
+  </section>
 
-    <a href="connectedFamily.html" class="card-link">
-      <div class="card">
-        <h3>Stay Connected</h3>
-        <p>Reach Out to Friends and Family →</p>
-      </div>
-    </a>
-    
-  </div>
-</section>
+</main>
 
-<section id="contact" class="section container">
-  <h2>Reach Out & Our Emergency Contact</h2>
-  <p>Just know you aren't alone, reach out to friends or family. You can call contact us any time during your healing process, and we'll respond as quickly as we possibly can.</p>
-
-  <form class="contact-form">
-    <input type="text" placeholder="Name">
-    <input type="email" placeholder="Email">
-    <textarea rows="4" placeholder="Message"></textarea>
-    <button class="btn">Send</button>
-  </form>
-</section>
-  
-<section id="contact2" class="section container">
-  <div class="card">
-  <h2>Mental Health Hotlines</h2>
-  <li>Call or text 988 (The Suicide & Crisis Lifeline)</li>
-  <li>Crisis Text Line (Text HOME to 741741)</li>
-  <li>Trevor Project for LGBTQ youth (866-488-7386)</li>
-  <li>Ohio Mental Health Hotline at 866-903-3787</li>
-  </div>
-</section>
-
-<section id="testimonial" class="section container">
-  <div class="card">
-  <h2>Testimonial</h2>
-  <p>  “I used to deal with a lot of peer pressure, and it always felt like I had no one to talk to about it. The website helped me understand what I was feeling and gave me real ways to handle the stress.
-    Reading the advice and stories from others made me feel less alone, and it honestly helped me get back on track.” - Mohamadu Faye <br> <br><br>
-  
-  
-  “I got bullied for having a beard at a young age, and it really messed with my confidence. When I found this website, the resources and supportive tone made me feel
-    understood instead of judged. It helped me rebuild my self‑esteem and reminded me that what I look like doesn’t define my worth.” - Yazan Satariyah
-  
-  </p>
-  </div>
-</section>
-
-<footer class="footer">
-  <p>&copy; <span id="year"></span>  ABA | Reset </p>
+<footer class="footer" role="contentinfo">
+  <p>&copy; <span id="year"></span> ABA | Reset</p>
 </footer>
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Mobile nav toggle
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('header nav');
+
+  toggle.addEventListener('click', () => {
+    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!expanded));
+    nav.classList.toggle('nav--open');
+  });
+
+  // Close nav when a link is clicked (mobile)
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('nav--open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
 </script>
 
 </body>
