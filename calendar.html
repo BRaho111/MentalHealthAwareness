@@ -2,131 +2,488 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Appointment Scheduler</title>
+<link rel="stylesheet" href="styles.css">
 <style>
-  body {
-    font-family: Arial, sans-serif;
-    background: #f5f5f5;
+  /* ── Page Layout ── */
+  .scheduler-page {
+    min-height: 100vh;
+    background: var(--mist);
+    padding: 0 0 4rem;
+  }
+
+  .scheduler-hero {
+    background: linear-gradient(to right, var(--sage), var(--deep-sage));
+    padding: 3rem 0 2.5rem;
+    text-align: center;
+    color: white;
+    margin-bottom: 2.5rem;
+  }
+
+  .scheduler-hero h2 {
+    margin: 0 0 0.5rem;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    color: white;
+  }
+
+  .scheduler-hero p {
     margin: 0;
-    padding: 40px;
-    display: flex;
-    justify-content: center;
+    opacity: 0.88;
+    font-size: 1rem;
   }
 
-  .scheduler {
-    background: #ffffff;
-    padding: 24px;
-    width: 320px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-  }
-
-  h2 {
-    margin: 0 0 16px;
-    font-size: 20px;
-    text-align: center;
-  }
-
+  /* ── Back Button ── */
   .back-btn {
-    display: block;
-    width: 140px;
-    padding: 9px 10px;
-    margin: 0 auto 20px auto;
-    text-align: center;
-    background: #e0e0e0;
-    border-radius: 6px;
-    color: #000000;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.6rem 1.2rem;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 8px;
+    color: white;
     text-decoration: none;
-    font-size: 13px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    transition: background 0.15s ease;
   }
 
   .back-btn:hover {
-    background: #cfcfcf;
+    background: rgba(255,255,255,0.32);
+  }
+
+  /* ── Main Grid ── */
+  .scheduler-grid {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 2rem;
+    align-items: start;
+    width: min(1100px, 90%);
+    margin: 0 auto;
+  }
+
+  /* ── Form Card ── */
+  .scheduler-form-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+    border: 1px solid rgba(0,0,0,0.06);
+    position: sticky;
+    top: 90px;
+  }
+
+  .scheduler-form-card h3 {
+    margin: 0 0 1.5rem;
+    font-size: 1.15rem;
+    color: var(--deep-sage);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
   }
 
   label {
     display: block;
-    font-size: 13px;
-    margin-bottom: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--muted);
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
-  input, button {
+  input[type="text"],
+  input[type="date"],
+  input[type="time"],
+  select {
     width: 100%;
-    padding: 9px 10px;
-    margin-bottom: 12px;
-    border-radius: 6px;
-    border: 1px solid #dddddd;
-    font-size: 13px;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 1.5px solid #dcd9d4;
+    font-size: 0.95rem;
+    font-family: inherit;
+    background: var(--mist);
+    color: var(--text);
     box-sizing: border-box;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
   }
 
-  button {
+  input:focus, select:focus {
+    outline: none;
+    border-color: var(--deep-sage);
+    box-shadow: 0 0 0 3px rgba(107,143,122,0.15);
+  }
+
+  .add-btn {
+    width: 100%;
+    padding: 0.85rem;
+    background: var(--deep-sage);
+    color: white;
     border: none;
-    background: #111111;
-    color: #ffffff;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
     cursor: pointer;
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 14px rgba(107,143,122,0.35);
+    transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+    font-family: inherit;
   }
 
-  button:hover {
-    background: #333333;
+  .add-btn:hover {
+    background: #5a7c68;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(107,143,122,0.4);
   }
 
-  .appointments {
-    margin-top: 16px;
-    font-size: 13px;
+  .add-btn:active {
+    transform: translateY(0);
   }
 
+  /* ── Appointments Panel ── */
+  .appointments-panel h3 {
+    margin: 0 0 1.25rem;
+    font-size: 1.15rem;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .appt-count {
+    background: var(--deep-sage);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+  }
+
+  .appointments-empty {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--muted);
+    background: white;
+    border-radius: 16px;
+    border: 2px dashed #dcd9d4;
+  }
+
+  .appointments-empty .empty-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .appointments-empty p {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  /* ── Appointment Item ── */
   .appointment-item {
-    padding: 8px 10px;
+    background: white;
+    border-radius: 14px;
+    padding: 1.1rem 1.25rem;
+    margin-bottom: 0.85rem;
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    animation: slide-in 0.3s ease;
+    border-left: 4px solid var(--deep-sage);
+  }
+
+  @keyframes slide-in {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .appt-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .appt-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .appt-meta {
+    font-size: 0.85rem;
+    color: var(--muted);
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .appt-type-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    background: var(--sage);
+    color: white;
+    white-space: nowrap;
+  }
+
+  .delete-btn {
+    background: none;
+    border: none;
+    color: #ccc;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 0.3rem;
     border-radius: 6px;
-    border: 1px solid #eeeeee;
-    background: #fafafa;
-    margin-bottom: 8px;
+    transition: color 0.15s ease, background 0.15s ease;
+    flex-shrink: 0;
+    width: auto;
+    margin: 0;
+    box-shadow: none;
+  }
+
+  .delete-btn:hover {
+    color: #c0392b;
+    background: #fdecea;
+  }
+
+  /* ── Form feedback ── */
+  .form-error {
+    color: #c0392b;
+    font-size: 0.85rem;
+    margin: -0.5rem 0 0.75rem;
+    font-weight: 600;
+    display: none;
+  }
+
+  .form-error.visible {
+    display: block;
+  }
+
+  /* ── Clear all button ── */
+  .clear-btn {
+    background: none;
+    border: 1px solid #dcd9d4;
+    color: var(--muted);
+    font-size: 0.8rem;
+    padding: 0.35rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.15s ease, color 0.15s ease;
+    width: auto;
+    margin: 0;
+    box-shadow: none;
+  }
+
+  .clear-btn:hover {
+    background: #fdecea;
+    color: #c0392b;
+    border-color: #f5c6c2;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 780px) {
+    .scheduler-grid {
+      grid-template-columns: 1fr;
+    }
+    .scheduler-form-card {
+      position: static;
+    }
   }
 </style>
 </head>
 <body>
+<div class="scheduler-page">
 
-<div class="scheduler">
-  <h2>Appointments</h2>
+  <div class="scheduler-hero">
+    <div class="container">
+      <a href="index.html" class="back-btn">← Back to Home</a>
+      <h2>Appointments</h2>
+      <p>Schedule and manage your mental health appointments</p>
+    </div>
+  </div>
 
-  <a href="index.html" class="back-btn">Back to Home</a>
+  <div class="scheduler-grid">
 
-  <label>Name</label>
-  <input id="name" type="text">
+    <!-- Form -->
+    <div class="scheduler-form-card">
+      <h3>📅 New Appointment</h3>
 
-  <label>Date</label>
-  <input id="date" type="date">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input id="name" type="text" placeholder="Your full name">
+      </div>
 
-  <label>Time</label>
-  <input id="time" type="time">
+      <div class="form-group">
+        <label for="appt-type">Appointment Type</label>
+        <select id="appt-type">
+          <option value="Therapy Session">Therapy Session</option>
+          <option value="Check-In">Check-In</option>
+          <option value="Counseling">Counseling</option>
+          <option value="Support Group">Support Group</option>
+          <option value="Follow-Up">Follow-Up</option>
+          <option value="Crisis Support">Crisis Support</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
 
-  <button onclick="addAppointment()">Add</button>
+      <div class="form-group">
+        <label for="date">Date</label>
+        <input id="date" type="date">
+      </div>
 
-  <div class="appointments" id="appointments"></div>
+      <div class="form-group">
+        <label for="time">Time</label>
+        <input id="time" type="time">
+      </div>
+
+      <p class="form-error" id="form-error">Please fill in all fields.</p>
+
+      <button class="add-btn" onclick="addAppointment()">Add Appointment</button>
+    </div>
+
+    <!-- Appointments List -->
+    <div class="appointments-panel">
+      <h3>
+        <span>Upcoming Appointments</span>
+        <div style="display:flex;gap:0.6rem;align-items:center;">
+          <span class="appt-count" id="appt-count">0</span>
+          <button class="clear-btn" onclick="clearAll()">Clear All</button>
+        </div>
+      </h3>
+
+      <div class="appointments" id="appointments">
+        <div class="appointments-empty">
+          <div class="empty-icon">🗓️</div>
+          <p>No appointments yet. Add one to get started.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
 
 <script>
+  // Set today as minimum date
+  document.getElementById("date").min = new Date().toISOString().split("T")[0];
+
+  let appointments = JSON.parse(localStorage.getItem("aba-appointments") || "[]");
+
+  function save() {
+    localStorage.setItem("aba-appointments", JSON.stringify(appointments));
+  }
+
+  function formatDate(dateStr) {
+    const [y, m, d] = dateStr.split("-");
+    const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    return months[parseInt(m)-1] + " " + parseInt(d) + ", " + y;
+  }
+
+  function formatTime(timeStr) {
+    const [h, m] = timeStr.split(":");
+    const hour = parseInt(h);
+    const ampm = hour >= 12 ? "PM" : "AM";
+    const h12 = hour % 12 || 12;
+    return h12 + ":" + m + " " + ampm;
+  }
+
+  function renderAppointments() {
+    const container = document.getElementById("appointments");
+    const count = document.getElementById("appt-count");
+    count.textContent = appointments.length;
+
+    if (appointments.length === 0) {
+      container.innerHTML = `
+        <div class="appointments-empty">
+          <div class="empty-icon">🗓️</div>
+          <p>No appointments yet. Add one to get started.</p>
+        </div>`;
+      return;
+    }
+
+    // Sort by date/time
+    const sorted = [...appointments].sort((a, b) => {
+      return new Date(a.date + "T" + a.time) - new Date(b.date + "T" + b.time);
+    });
+
+    container.innerHTML = sorted.map((appt, i) => `
+      <div class="appointment-item" id="appt-${appt.id}">
+        <div class="appt-info">
+          <div class="appt-name">${appt.name}</div>
+          <div class="appt-meta">
+            <span>📅 ${formatDate(appt.date)}</span>
+            <span>🕐 ${formatTime(appt.time)}</span>
+          </div>
+        </div>
+        <span class="appt-type-badge">${appt.type}</span>
+        <button class="delete-btn" onclick="deleteAppointment('${appt.id}')" title="Remove">✕</button>
+      </div>
+    `).join("");
+  }
+
   function addAppointment() {
     const name = document.getElementById("name").value.trim();
     const date = document.getElementById("date").value;
     const time = document.getElementById("time").value;
+    const type = document.getElementById("appt-type").value;
+    const error = document.getElementById("form-error");
 
-    if (!name || !date || !time) return;
+    if (!name || !date || !time) {
+      error.classList.add("visible");
+      return;
+    }
 
-    const container = document.getElementById("appointments");
-    const item = document.createElement("div");
+    error.classList.remove("visible");
 
-    item.className = "appointment-item";
-    item.textContent = name + " — " + date + " at " + time;
+    appointments.push({
+      id: Date.now().toString(),
+      name, date, time, type
+    });
 
-    container.appendChild(item);
+    save();
+    renderAppointments();
 
     document.getElementById("name").value = "";
     document.getElementById("date").value = "";
     document.getElementById("time").value = "";
   }
-</script>
 
+  function deleteAppointment(id) {
+    appointments = appointments.filter(a => a.id !== id);
+    save();
+    renderAppointments();
+  }
+
+  function clearAll() {
+    if (appointments.length === 0) return;
+    if (confirm("Remove all appointments?")) {
+      appointments = [];
+      save();
+      renderAppointments();
+    }
+  }
+
+  // Allow pressing Enter to submit
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && document.activeElement.tagName !== "BUTTON") {
+      addAppointment();
+    }
+  });
+
+  renderAppointments();
+</script>
 </body>
 </html>
