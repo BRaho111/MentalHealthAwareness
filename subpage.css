@@ -1,1 +1,184 @@
+/* ═══════════════════════════════════════════════════════════════
+   subpage.css — Shared styles for all ABA | Reset sub-pages
+═══════════════════════════════════════════════════════════════ */
 
+/* ─── Hero Banner ───────────────────────────────────────────── */
+.subpage-hero {
+  width: 100%;
+  height: 340px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.subpage-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(47,62,70,0.45), rgba(47,62,70,0.75));
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 2.5rem;
+}
+
+.subpage-hero-overlay .container {
+  color: white;
+}
+
+.subpage-tag {
+  display: inline-block;
+  background: var(--sage);
+  color: white;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  margin-bottom: 0.75rem;
+}
+
+.subpage-hero-overlay h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  line-height: 1.2;
+  color: white;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+/* ─── Two-column layout ─────────────────────────────────────── */
+.subpage-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 2.5rem;
+  align-items: start;
+  margin-top: 1rem;
+}
+
+/* ─── Video Box ─────────────────────────────────────────────── */
+.video-box {
+  margin-bottom: 2rem;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 3px solid var(--deep-sage);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  background: #000;
+}
+
+.video-box video {
+  width: 100%;
+  height: auto;
+  min-height: 320px;
+  display: block;
+  object-fit: cover;
+}
+
+/* ─── Info Section ──────────────────────────────────────────── */
+.info-section {
+  background: var(--sand);
+  border-radius: 16px;
+  padding: 2rem;
+  border-left: 5px solid var(--deep-sage);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+}
+
+.info-section h3 {
+  margin: 0 0 1rem;
+  font-size: 1.3rem;
+  color: var(--deep-sage);
+}
+
+.info-section p {
+  margin: 0;
+  line-height: 1.8;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+/* ─── Sidebar ───────────────────────────────────────────────── */
+.subpage-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  position: sticky;
+  top: 90px;
+}
+
+.sidebar-img-card {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 3px solid var(--deep-sage);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sidebar-img-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.14);
+}
+
+.sidebar-img-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.sidebar-fact {
+  background: var(--sand);
+  border-radius: 14px;
+  padding: 1.25rem;
+  border: 1px solid rgba(0,0,0,0.07);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border-top: 4px solid var(--sage);
+}
+
+.sidebar-fact strong {
+  display: block;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--deep-sage);
+  margin-bottom: 0.5rem;
+}
+
+.sidebar-fact p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* ─── Responsive ────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .subpage-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .subpage-sidebar {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .sidebar-img-card {
+    flex: 1 1 45%;
+  }
+
+  .sidebar-fact {
+    flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .subpage-hero {
+    height: 240px;
+  }
+
+  .sidebar-img-card {
+    flex: 1 1 100%;
+  }
+
+  .video-box video {
+    min-height: 200px;
+  }
+}
