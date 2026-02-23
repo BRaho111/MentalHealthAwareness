@@ -1,15 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Golden Combo</title>
+  <title>Calm Your Mind | ABA | Reset</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="subpage.css">
 </head>
-
 <body>
-
 <header class="header">
   <div class="container nav">
     <h1 class="logo">ABA | Reset</h1>
@@ -19,29 +17,50 @@
   </div>
 </header>
 
-<section class="section container">
-  <h2>Calm Your Mind</h2>
-
- <div class="video-box">
-    <video width="1000px" height="450px" controls>
-      <source src="Meditation%20Is%20Easier%20Than%20You%20Think.mp4" type="video/mp4">
-    </video>
+<div class="subpage-hero" style="background-image: url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1400&q=85');">
+  <div class="subpage-hero-overlay">
+    <div class="container">
+      <span class="subpage-tag">Self-Care</span>
+      <h2>Calm Your Mind</h2>
+    </div>
   </div>
+</div>
 
-  <div class="info-section">
-    <h3>Take a Breather</h3>
-    <p>The National Institute of Mental Health(NIMH) highlights the notable benefits of mindfulness and relaxation for your mental health. Mindfulness practices like meditation, Diaphragmatic Breathing, visualization, assisting individuals, focusing on the present moment, and managing overwhelming thoughts or emotions. The NIMH notes that these techniques can reduce stress and enhance your emotional regulation, assisting you in building resilience towards life’s challenges. For teenagers, incorporating mindfulness into daily activites & routines can improve their mood and reduce anxiety.</p>
+<section class="section container">
+  <div class="subpage-layout">
+
+    <div class="subpage-main">
+      <div class="video-box">
+        <video controls>
+          <source src="Meditation%20Is%20Easier%20Than%20You%20Think.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="info-section">
+        <h3>Take a Breather</h3>
+        <p>The National Institute of Mental Health (NIMH) highlights the notable benefits of mindfulness and relaxation for your mental health. Mindfulness practices like meditation, Diaphragmatic Breathing, visualization, assisting individuals, focusing on the present moment, and managing overwhelming thoughts or emotions. The NIMH notes that these techniques can reduce stress and enhance your emotional regulation, assisting you in building resilience towards life's challenges. For teenagers, incorporating mindfulness into daily activites &amp; routines can improve their mood and reduce anxiety.</p>
+      </div>
+    </div>
+
+    <aside class="subpage-sidebar">
+      <div class="sidebar-img-card">
+        <img src="https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?w=600&q=85" alt="Person meditating in nature">
+      </div>
+      <div class="sidebar-img-card">
+        <img src="https://images.unsplash.com/photo-1447452001526-63fc20e3bb18?w=600&q=85" alt="Calm breathing exercise">
+      </div>
+      <div class="sidebar-fact">
+        <strong>Try This</strong>
+        <p>Even 5 minutes of deep breathing daily can measurably reduce stress hormones and improve focus.</p>
+      </div>
+    </aside>
+
   </div>
 </section>
 
 <footer class="footer">
   <p>&copy; <span id="year"></span> ABA | Reset</p>
 </footer>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
+<script src="main.js" defer></script>
 </body>
 </html>
-
