@@ -927,3 +927,32 @@ nav a.nav-active {
     grid-column: span 1;
   }
 }
+
+/* ─── Testimonial Photo ─────────────────────────────────────── */
+.testimonial-photo-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.testimonial-photo {
+  width: 100%;
+  max-width: 480px;
+  height: 300px;
+  object-fit: cover;
+  object-position: center 30%;
+  border-radius: 16px;
+  border: 3px solid var(--deep-sage);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.13);
+  display: block;
+}
+
+.testimonial-photo-caption {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--deep-sage);
+  letter-spacing: 0.03em;
+  text-align: center;
+}
