@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Greenest Combo</title>
+  <title>School Stress Is Real | ABA | Reset</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="subpage.css">
 </head>
-
 <body>
-
 <header class="header">
   <div class="container nav">
     <h1 class="logo">ABA | Reset</h1>
@@ -18,30 +17,50 @@
   </div>
 </header>
 
-<section class="section container">
-  <h2>School Stress Is Real</h2>
-
-  <div class="video-box">
-    <video width="1000px" height="450px" controls>
-        <source src="Stress%20and%20Adversity%20in%20Children%20-%20Centers%20for%20Disease%20Control%20and%20Prevention%20(CDC)%20(1080p,%20h264,%20youtube).mp4" type="video/mp4">
-    </video>
+<div class="subpage-hero" style="background-image: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1400&q=85');">
+  <div class="subpage-hero-overlay">
+    <div class="container">
+      <span class="subpage-tag">Resources</span>
+      <h2>School Stress Is Real</h2>
+    </div>
   </div>
+</div>
 
-  <div class="info-section">
-    <h3>Support and Solutions for Teen Mental Health</h3>
-    <p>During your teenage years, the stress of piling on assignments, scholarly expectations, and social pressures has a major impact on teenagers' stress levels. “According to the CDC, in 2023, 4 in 10 high school students reported persistent feelings of sadness or hopelessness, and 1 in 10 attempted suicide.” This is an extremely serious issue stemming from the stresses of school. This evidence shows us how pressure is affecting students' mental health.  Poor mental health may lead to poor grades, negatively impact decision-making, and affect their health significantly. Schools can assist in relieving pressures from students by building safe & supportive communities, and schools can implement strategies that can help students' mental health and promote positive behavior.
+<section class="section container">
+  <div class="subpage-layout">
 
-</p>
+    <div class="subpage-main">
+      <div class="video-box">
+        <video controls>
+          <source src="Stress%20and%20Adversity%20in%20Children%20-%20Centers%20for%20Disease%20Control%20and%20Prevention%20(CDC)%20(1080p,%20h264,%20youtube).mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="info-section">
+        <h3>Support and Solutions for Teen Mental Health</h3>
+        <p>During your teenage years, the stress of piling on assignments, scholarly expectations, and social pressures has a major impact on teenagers' stress levels. "According to the CDC, in 2023, 4 in 10 high school students reported persistent feelings of sadness or hopelessness, and 1 in 10 attempted suicide." This is an extremely serious issue stemming from the stresses of school. This evidence shows us how pressure is affecting students' mental health. Poor mental health may lead to poor grades, negatively impact decision-making, and affect their health significantly. Schools can assist in relieving pressures from students by building safe &amp; supportive communities, and schools can implement strategies that can help students' mental health and promote positive behavior.</p>
+      </div>
+    </div>
+
+    <aside class="subpage-sidebar">
+      <div class="sidebar-img-card">
+        <img src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?w=600&q=85" alt="Student studying">
+      </div>
+      <div class="sidebar-img-card">
+        <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&q=85" alt="Teens in school hallway">
+      </div>
+      <div class="sidebar-fact">
+        <strong>Did You Know?</strong>
+        <p>4 in 10 high school students reported persistent feelings of sadness or hopelessness in 2023.</p>
+      </div>
+    </aside>
+
   </div>
 </section>
 
 <footer class="footer">
   <p>&copy; <span id="year"></span> ABA | Reset</p>
 </footer>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
+<script src="main.js" defer></script>
 </body>
 </html>
