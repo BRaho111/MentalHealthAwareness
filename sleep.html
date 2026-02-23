@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Silver Combo</title>
+  <title>Rest Well | ABA | Reset</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="subpage.css">
 </head>
-
 <body>
-
 <header class="header">
   <div class="container nav">
     <h1 class="logo">ABA | Reset</h1>
@@ -18,29 +17,50 @@
   </div>
 </header>
 
-<section class="section container">
-  <h2>Rest Well</h2>
-
-  <div class="video-box">
-    <video width="1000px" height="450px" controls>
-      <source src="The%20benefits%20of%20a%20good%20night's%20sleep%20-%20Shai%20Marcu.mp4" type="video/mp4">
-    </video>
+<div class="subpage-hero" style="background-image: url('https://images.unsplash.com/photo-1531353826977-0941b4779a1c?w=1400&q=85');">
+  <div class="subpage-hero-overlay">
+    <div class="container">
+      <span class="subpage-tag">Self-Care</span>
+      <h2>Rest Well</h2>
+    </div>
   </div>
+</div>
 
-  <div class="info-section">
-    <h3>Why Building Healthy Sleep Habits is Important</h3>
-    <p>The Centers for Disease Control and Prevention(CDC) highligths how notability of healthy sleep habits for the youth. Teenagers require 8-10 hours of sleep a night for optimal health. Due to school demand, scholarly stress, extracurriculars, and electronic usage, most fall short. The CDC reports that an insufficient amount of sleep correlates with high levels of stress, decreased academic performance, and increased depression and anxiety. Establishing a regular sleep schedule, limiting electronic usage before bed, and resting in an environment catered to you, teenagers can significantly improve their mental and emotional health.</p>
+<section class="section container">
+  <div class="subpage-layout">
+
+    <div class="subpage-main">
+      <div class="video-box">
+        <video controls>
+          <source src="The%20benefits%20of%20a%20good%20night's%20sleep%20-%20Shai%20Marcu.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="info-section">
+        <h3>Why Building Healthy Sleep Habits is Important</h3>
+        <p>The Centers for Disease Control and Prevention (CDC) highlights how notability of healthy sleep habits for the youth. Teenagers require 8-10 hours of sleep a night for optimal health. Due to school demand, scholarly stress, extracurriculars, and electronic usage, most fall short. The CDC reports that an insufficient amount of sleep correlates with high levels of stress, decreased academic performance, and increased depression and anxiety. Establishing a regular sleep schedule, limiting electronic usage before bed, and resting in an environment catered to you, teenagers can significantly improve their mental and emotional health.</p>
+      </div>
+    </div>
+
+    <aside class="subpage-sidebar">
+      <div class="sidebar-img-card">
+        <img src="https://images.unsplash.com/photo-1455642305367-68834a1da7ab?w=600&q=85" alt="Cozy bedroom sleep environment">
+      </div>
+      <div class="sidebar-img-card">
+        <img src="https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=600&q=85" alt="Person waking up refreshed">
+      </div>
+      <div class="sidebar-fact">
+        <strong>CDC Recommendation</strong>
+        <p>Teenagers need 8–10 hours of sleep per night for optimal physical and mental health.</p>
+      </div>
+    </aside>
+
   </div>
 </section>
 
 <footer class="footer">
   <p>&copy; <span id="year"></span> ABA | Reset</p>
 </footer>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
+<script src="main.js" defer></script>
 </body>
 </html>
-
