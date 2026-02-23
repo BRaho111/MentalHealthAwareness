@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Redest Combo</title>
+  <title>It's Okay to Feel Overwhelmed | ABA | Reset</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="subpage.css">
 </head>
-
 <body>
-
 <header class="header">
   <div class="container nav">
     <h1 class="logo">ABA | Reset</h1>
@@ -18,28 +17,50 @@
   </div>
 </header>
 
-<section class="section container">
-  <h2>It’s Okay to Feel Overwhelmed</h2>
-
-  <div class="video-box">
-    <video width="1000px" height="450px" controls>
-      <source src= "What%20is%20Mental%20Health_.mp4" type="video/mp4">
-    </video>
+<div class="subpage-hero" style="background-image: url('https://images.unsplash.com/photo-1541199249251-f713e6145474?w=1400&q=85');">
+  <div class="subpage-hero-overlay">
+    <div class="container">
+      <span class="subpage-tag">Resources</span>
+      <h2>It's Okay to Feel Overwhelmed</h2>
+    </div>
   </div>
+</div>
 
-  <div class="info-section">
-    <h3>Take Time to Reset and Recharge</h3>
-    <p>Due to the stresses of school, being a teen can feel overwhelming. The American Academy of Child & Adolescent Psychiatry puts an emphasis on teenagers' struggles, like experiencing stress, melancholy, or having difficulties with coping. These feelings aren’t inherently wrong; it’s more of a signal from your mind and body that you have to sit down and refresh. Resetting to baseline means providing yourself with the space to relax, reaiming your focus, and rebuilding a healthy relationship with yourself. You can do activities like grounding, exercise, or deep breathing to assist in managing your stress levels. Taking breaks with intention can protect your mental health & feeling like you have more control of your life. </p>
+<section class="section container">
+  <div class="subpage-layout">
+
+    <div class="subpage-main">
+      <div class="video-box">
+        <video controls>
+          <source src="What%20is%20Mental%20Health_.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="info-section">
+        <h3>Take Time to Reset and Recharge</h3>
+        <p>Due to the stresses of school, being a teen can feel overwhelming. The American Academy of Child &amp; Adolescent Psychiatry puts an emphasis on teenagers' struggles, like experiencing stress, melancholy, or having difficulties with coping. These feelings aren't inherently wrong; it's more of a signal from your mind and body that you have to sit down and refresh. Resetting to baseline means providing yourself with the space to relax, reaiming your focus, and rebuilding a healthy relationship with yourself. You can do activities like grounding, exercise, or deep breathing to assist in managing your stress levels. Taking breaks with intention can protect your mental health &amp; feeling like you have more control of your life.</p>
+      </div>
+    </div>
+
+    <aside class="subpage-sidebar">
+      <div class="sidebar-img-card">
+        <img src="https://images.unsplash.com/photo-1493836512294-502baa1986e2?w=600&q=85" alt="Person taking a deep breath outdoors">
+      </div>
+      <div class="sidebar-img-card">
+        <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=600&q=85" alt="Calm peaceful nature scene">
+      </div>
+      <div class="sidebar-fact">
+        <strong>Remember</strong>
+        <p>Feeling overwhelmed is a signal — not a weakness. Taking a reset break is a strength.</p>
+      </div>
+    </aside>
+
   </div>
 </section>
 
 <footer class="footer">
   <p>&copy; <span id="year"></span> ABA | Reset</p>
 </footer>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
+<script src="main.js" defer></script>
 </body>
 </html>
