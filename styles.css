@@ -226,7 +226,7 @@ nav a:focus-visible {
 }
 
 .card-link .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-4px) scale(1.03);
   box-shadow: 0 10px 24px rgba(0,0,0,0.1);
 }
 
@@ -368,6 +368,107 @@ blockquote.testimonial footer {
   color: white;
   margin-top: 0;
   font-weight: 500;
+}
+
+/* ─── Reading Progress Bar ──────────────────────────────────── */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: var(--deep-sage);
+  z-index: 200;
+  transition: width 0.1s linear;
+  pointer-events: none;
+}
+
+/* ─── Back to Top Button ────────────────────────────────────── */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--deep-sage);
+  color: white;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.25s ease, transform 0.25s ease, background 0.15s ease;
+  pointer-events: none;
+  z-index: 150;
+}
+
+.back-to-top--visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  background: #5a7c68;
+}
+
+/* ─── Ripple Effect ─────────────────────────────────────────── */
+.card {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(107, 143, 122, 0.2);
+  transform: scale(0);
+  animation: ripple-anim 0.55s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple-anim {
+  to {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+/* ─── Form Feedback ─────────────────────────────────────────── */
+.form-feedback {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  min-height: 1.4em;
+}
+
+.form-feedback--error {
+  color: #c0392b;
+}
+
+.form-feedback--success {
+  color: var(--deep-sage);
+}
+
+/* ─── Active Nav Link ───────────────────────────────────────── */
+nav a.nav-active {
+  opacity: 1;
+  background: rgba(255,255,255,0.2);
+}
+
+/* ─── Hotline Click-to-Call Links ───────────────────────────── */
+.hotline-link {
+  color: var(--deep-sage);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid var(--deep-sage);
+  transition: opacity 0.15s ease;
+}
+
+.hotline-link:hover {
+  opacity: 0.75;
 }
 
 /* ─── Border helper (preserved) ────────────────────────────── */
