@@ -206,6 +206,15 @@ nav a:focus-visible {
   font-size: 1.05rem;
 }
 
+.card-img {
+  width: calc(100% + 2.8rem);
+  margin: -1.6rem -1.4rem 1.2rem;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 14px 14px 0 0;
+  display: block;
+}
+
 .card p {
   margin: 0;
   font-size: 0.95rem;
