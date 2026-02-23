@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blue Combo</title>
+  <title>Move Your Body | ABA | Reset</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="subpage.css">
 </head>
-
 <body>
-
 <header class="header">
   <div class="container nav">
     <h1 class="logo">ABA | Reset</h1>
@@ -18,28 +17,50 @@
   </div>
 </header>
 
-<section class="section container">
-  <h2>Exercise Your Body & Mind</h2>
-
-  <div class="video-box">
-    <video width="1000px" height="450px" controls>
-    <source src="The%20Brain-Changing%20Benefits%20of%20Exercise%20_%20Wendy%20Suzuki%20_%20TED.mp4" type="video/mp4">
-    </video>
+<div class="subpage-hero" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1400&q=85');">
+  <div class="subpage-hero-overlay">
+    <div class="container">
+      <span class="subpage-tag">Self-Care</span>
+      <h2>Exercise Your Body &amp; Mind</h2>
+    </div>
   </div>
+</div>
 
-  <div class="info-section">
-    <h3>Boost Your Mood with Exercise</h3>
-    <p>Research from Mayo Clinic has proven that teens who perform regular physical activity tend to have improved mental health. Exercise stimulates the production of endorphins. Endorphins are a natural mood lifter in our brains. They reduce feelings of stress and anxiety. Moderate activities include walking, jogging, or playing a sport at a moderate pace. These can improve your mood, boost your self-confidence, and promote better sleep. Mayo Clinic focuses on consistent physical activity as a vital and effective way to manage stress and relieve symptoms of depression and anxiety in teenagers, supporting a life-long of improved mental well-being.</p>
+<section class="section container">
+  <div class="subpage-layout">
+
+    <div class="subpage-main">
+      <div class="video-box">
+        <video controls>
+          <source src="The%20Brain-Changing%20Benefits%20of%20Exercise%20_%20Wendy%20Suzuki%20_%20TED.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="info-section">
+        <h3>Boost Your Mood with Exercise</h3>
+        <p>Research from Mayo Clinic has proven that teens who perform regular physical activity tend to have improved mental health. Exercise stimulates the production of endorphins. Endorphins are a natural mood lifter in our brains. They reduce feelings of stress and anxiety. Moderate activities include walking, jogging, or playing a sport at a moderate pace. These can improve your mood, boost your self-confidence, and promote better sleep. Mayo Clinic focuses on consistent physical activity as a vital and effective way to manage stress and relieve symptoms of depression and anxiety in teenagers, supporting a life-long of improved mental well-being.</p>
+      </div>
+    </div>
+
+    <aside class="subpage-sidebar">
+      <div class="sidebar-img-card">
+        <img src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?w=600&q=85" alt="Teen jogging outdoors">
+      </div>
+      <div class="sidebar-img-card">
+        <img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=600&q=85" alt="Group playing sports">
+      </div>
+      <div class="sidebar-fact">
+        <strong>Did You Know?</strong>
+        <p>Exercise releases endorphins — your brain's natural mood lifters — reducing stress and anxiety instantly.</p>
+      </div>
+    </aside>
+
   </div>
 </section>
 
 <footer class="footer">
   <p>&copy; <span id="year"></span> ABA | Reset</p>
 </footer>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
+<script src="main.js" defer></script>
 </body>
 </html>
